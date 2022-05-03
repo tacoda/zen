@@ -1,5 +1,4 @@
-This is a demonstration application which makes use of Bash CLI
-to present its interface.
+Zen is a workflow management tool.
 
 You can place any scripts here and Bash CLI will automatically make
 them available, you can also add <command>.help files to provide contextual
