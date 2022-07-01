@@ -365,7 +365,7 @@ zen_flow_apply_usage() {
   fi
 
   printf "Usage:\n"
-  printf "  zen flow apply MESSAGE\n"
+  printf "  zen flow apply\n"
   printf "  zen flow apply --help | -h\n"
   echo
 
@@ -374,14 +374,6 @@ zen_flow_apply_usage() {
     # :command.usage_fixed_flags
     echo "  --help, -h"
     printf "    Show this help\n"
-    echo
-
-    # :command.usage_args
-    printf "Arguments:\n"
-
-    # :argument.usage
-    echo "  MESSAGE"
-    printf "    Message\n"
     echo
 
   fi
@@ -757,7 +749,7 @@ zen_local_cuke_usage() {
   fi
 
   printf "Usage:\n"
-  printf "  zen local cuke [CUKE_PATH]\n"
+  printf "  zen local cuke [FEATURE_PATH]\n"
   printf "  zen local cuke --help | -h\n"
   echo
 
@@ -772,8 +764,8 @@ zen_local_cuke_usage() {
     printf "Arguments:\n"
 
     # :argument.usage
-    echo "  CUKE_PATH"
-    printf "    Path to cucumber test\n"
+    echo "  FEATURE_PATH"
+    printf "    Path to feature tests\n"
     printf "    Default: \n"
     echo
 
@@ -923,7 +915,7 @@ zen_repo_checkin_usage() {
   fi
 
   printf "Usage:\n"
-  printf "  zen repo checkin MESSAGE\n"
+  printf "  zen repo checkin\n"
   printf "  zen repo checkin --help | -h\n"
   echo
 
@@ -932,14 +924,6 @@ zen_repo_checkin_usage() {
     # :command.usage_fixed_flags
     echo "  --help, -h"
     printf "    Show this help\n"
-    echo
-
-    # :command.usage_args
-    printf "Arguments:\n"
-
-    # :argument.usage
-    echo "  MESSAGE"
-    printf "    Message\n"
     echo
 
   fi
@@ -1116,7 +1100,7 @@ zen_flow_apply_command() {
   # src/flow_apply_command.sh
   # zen repo update
   zen repo stage
-  zen repo checkin "${args[message]}"
+  zen repo checkin
   zen repo publish
 }
 
@@ -1239,7 +1223,7 @@ zen_repo_unstage_command() {
 # :command.function
 zen_repo_checkin_command() {
   # src/repo_checkin_command.sh
-  git commit -m "${args[message]}"
+  git commit
 }
 
 # :command.function
@@ -1909,23 +1893,13 @@ zen_flow_apply_parse_requirements() {
     * )
       # :command.parse_requirements_case
       # :command.parse_requirements_case_simple
-      if [[ -z ${args[message]+x} ]]; then
-        # :argument.validations
-        args[message]=$1
-        shift
-      else
-        printf "invalid argument: %s\n" "$key"
-        exit 1
-      fi
+      printf "invalid argument: %s\n" "$key"
+      exit 1
       ;;
 
     esac
   done
   # :command.required_args_filter
-  if [[ -z ${args[message]+x} ]]; then
-    printf "missing required argument: MESSAGE\nusage: zen flow apply MESSAGE\n"
-    exit 1
-  fi
   # :command.required_flags_filter
   # :command.catch_all_filter
   # :command.default_assignments
@@ -2576,9 +2550,9 @@ zen_local_cuke_parse_requirements() {
     * )
       # :command.parse_requirements_case
       # :command.parse_requirements_case_simple
-      if [[ -z ${args[cuke_path]+x} ]]; then
+      if [[ -z ${args[feature_path]+x} ]]; then
         # :argument.validations
-        args[cuke_path]=$1
+        args[feature_path]=$1
         shift
       else
         printf "invalid argument: %s\n" "$key"
@@ -2592,7 +2566,7 @@ zen_local_cuke_parse_requirements() {
   # :command.required_flags_filter
   # :command.catch_all_filter
   # :command.default_assignments
-  [[ -n ${args[cuke_path]:-} ]] || args[cuke_path]=""
+  [[ -n ${args[feature_path]:-} ]] || args[feature_path]=""
   # :command.whitelist_filter
   # :command.user_filter
 }
@@ -2864,23 +2838,13 @@ zen_repo_checkin_parse_requirements() {
     * )
       # :command.parse_requirements_case
       # :command.parse_requirements_case_simple
-      if [[ -z ${args[message]+x} ]]; then
-        # :argument.validations
-        args[message]=$1
-        shift
-      else
-        printf "invalid argument: %s\n" "$key"
-        exit 1
-      fi
+      printf "invalid argument: %s\n" "$key"
+      exit 1
       ;;
 
     esac
   done
   # :command.required_args_filter
-  if [[ -z ${args[message]+x} ]]; then
-    printf "missing required argument: MESSAGE\nusage: zen repo checkin MESSAGE\n"
-    exit 1
-  fi
   # :command.required_flags_filter
   # :command.catch_all_filter
   # :command.default_assignments

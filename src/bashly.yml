@@ -42,10 +42,6 @@ commands:
     commands:
       - name: apply
         help: Apply local changes to remote
-        args:
-          - name: message
-            help: Message
-            required: true
 
       - name: amend
         help: Amend the last changeset message
@@ -96,8 +92,8 @@ commands:
       - name: cuke
         help: Run cucumber tests
         args:
-          - name: cuke_path
-            help: Path to cucumber test
+          - name: feature_path
+            help: Path to feature tests
             default: ""
 
   - name: repo
@@ -122,10 +118,6 @@ commands:
 
       - name: checkin
         help: Checkin changes in the branch
-        args:
-          - name: message
-            help: Message
-            required: true
 
       - name: update
         help: Update changes in the branch

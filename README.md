@@ -12,8 +12,6 @@ TODO: Create an install script. If interested, reach out to me on slack and I'll
 zen
 ```
 
-## Help Overview
-
 ```
 zen - Zen is a workflow management tool.
 
@@ -31,47 +29,82 @@ Commands:
   repo    Interact with local repo
 ```
 
-## Resources
+## `card`
 
-### Cards
+```
+zen card - Interact with cards
 
-A `card` is a Jira card.
+Usage:
+  zen card [command]
+  zen card [command] --help | -h
 
-``` sh
-zen card
+Commands:
+  list   List all assigned cards
 ```
 
-`list`: List all assigned cards
+## `flow`
 
-``` sh
-zen card list
+```
+zen flow - Interact with workflows
+
+Usage:
+  zen flow [command]
+  zen flow [command] --help | -h
+
+Commands:
+  apply   Apply local changes to remote
+  amend   Amend the last changeset message
 ```
 
-### Workflows
+## `pr`
 
-A `flow` is a workflow.
+```
+zen pr - Interact with pull requests
 
-``` sh
-zen flow
+Usage:
+  zen pr [command]
+  zen pr [command] --help | -h
+
+Commands:
+  list   List all pull requests
 ```
 
-`apply`: Apply local changes to remote
+## `local`
 
-``` sh
-zen flow apply
+```
+zen local - Interact with local dev environment
+
+Usage:
+  zen local [command]
+  zen local [command] --help | -h
+
+Commands:
+  build     Build the local dev environment
+  clean     Clean the local dev environment
+  start     Start the local dev environment
+  stop      Stop the local dev environment
+  restart   Restart the local dev environment
+  shell     Start a tty shell in the local dev environment
+  console   Start a rails console in the local dev environment
+  rspec     Run rspec tests in the local test environment
+  cuke      Run cucumber tests
 ```
 
-### Pull Requests
+## `repo`
 
-A `pr` is a GitHub pull request.
-
-``` sh
-zen pr
 ```
+zen repo - Interact with local repo
 
-`list`: List all assigned PRs
+Usage:
+  zen repo [command]
+  zen repo [command] --help | -h
 
-``` sh
-zen pr list
+Commands:
+  branch    Create a new branch in the repo
+  stage     Stage local changes
+  unstage   Unstage local changes
+  checkin   Checkin changes in the branch
+  update    Update changes in the branch
+  publish   Publish changes to the remote
 ```
 
