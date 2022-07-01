@@ -339,6 +339,7 @@ zen_flow_usage() {
   # :command.usage_commands
   printf "Commands:\n"
   echo "  apply   Apply local changes to remote"
+  echo "  amend   Amend the last changeset message"
   echo
 
   if [[ -n $long_usage ]]; then
@@ -364,7 +365,7 @@ zen_flow_apply_usage() {
   fi
 
   printf "Usage:\n"
-  printf "  zen flow apply\n"
+  printf "  zen flow apply MESSAGE\n"
   printf "  zen flow apply --help | -h\n"
   echo
 
@@ -373,6 +374,49 @@ zen_flow_apply_usage() {
     # :command.usage_fixed_flags
     echo "  --help, -h"
     printf "    Show this help\n"
+    echo
+
+    # :command.usage_args
+    printf "Arguments:\n"
+
+    # :argument.usage
+    echo "  MESSAGE"
+    printf "    Message\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_flow_amend_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen flow amend - Amend the last changeset message\n"
+    echo
+
+  else
+    printf "zen flow amend - Amend the last changeset message\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen flow amend MESSAGE\n"
+  printf "  zen flow amend --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+
+    # :command.usage_args
+    printf "Arguments:\n"
+
+    # :argument.usage
+    echo "  MESSAGE"
+    printf "    Amended message\n"
     echo
 
   fi
@@ -576,7 +620,7 @@ zen_repo_checkin_usage() {
   fi
 
   printf "Usage:\n"
-  printf "  zen repo checkin\n"
+  printf "  zen repo checkin MESSAGE\n"
   printf "  zen repo checkin --help | -h\n"
   echo
 
@@ -585,6 +629,14 @@ zen_repo_checkin_usage() {
     # :command.usage_fixed_flags
     echo "  --help, -h"
     printf "    Show this help\n"
+    echo
+
+    # :command.usage_args
+    printf "Arguments:\n"
+
+    # :argument.usage
+    echo "  MESSAGE"
+    printf "    Message\n"
     echo
 
   fi
@@ -753,15 +805,21 @@ zen_card_list_command() {
   # echo "# code for 'zen card list' goes here"
   # echo "# you can edit it freely and regenerate (it will not be overwritten)"
   # inspect_args
-  jira issue
+  jr issue
 }
 
 # :command.function
 zen_flow_apply_command() {
   # src/flow_apply_command.sh
-  zen repo update
-  zen repo checkin
+  # zen repo update
+  zen repo checkin "${args[message]}"
   zen repo publish
+}
+
+# :command.function
+zen_flow_amend_command() {
+  # src/flow_amend_command.sh
+  git commit -amend "${args[message]}"
 }
 
 # :command.function
@@ -792,16 +850,13 @@ zen_repo_branch_command() {
 # :command.function
 zen_repo_checkin_command() {
   # src/repo_checkin_command.sh
-  git commit
+  git commit -a -m "${args[message]}"
 }
 
 # :command.function
 zen_repo_update_command() {
   # src/repo_update_command.sh
-  echo "# this file is located in 'src/repo_update_command.sh'"
-  echo "# code for 'zen repo update' goes here"
-  echo "# you can edit it freely and regenerate (it will not be overwritten)"
-  inspect_args
+  git pull --rebase origin HEAD
 }
 
 # :command.function
@@ -1396,6 +1451,13 @@ zen_flow_parse_requirements() {
     shift $#
     ;;
 
+  amend )
+    action="amend"
+    shift
+    zen_flow_amend_parse_requirements "$@"
+    shift $#
+    ;;
+
   # :command.command_fallback
   * )
     zen_flow_usage
@@ -1458,13 +1520,75 @@ zen_flow_apply_parse_requirements() {
     * )
       # :command.parse_requirements_case
       # :command.parse_requirements_case_simple
-      printf "invalid argument: %s\n" "$key"
-      exit 1
+      if [[ -z ${args[message]+x} ]]; then
+        # :argument.validations
+        args[message]=$1
+        shift
+      else
+        printf "invalid argument: %s\n" "$key"
+        exit 1
+      fi
       ;;
 
     esac
   done
   # :command.required_args_filter
+  if [[ -z ${args[message]+x} ]]; then
+    printf "missing required argument: MESSAGE\nusage: zen flow apply MESSAGE\n"
+    exit 1
+  fi
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
+zen_flow_amend_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_flow_amend_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="flow amend"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      if [[ -z ${args[message]+x} ]]; then
+        # :argument.validations
+        args[message]=$1
+        shift
+      else
+        printf "invalid argument: %s\n" "$key"
+        exit 1
+      fi
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
+  if [[ -z ${args[message]+x} ]]; then
+    printf "missing required argument: MESSAGE\nusage: zen flow amend MESSAGE\n"
+    exit 1
+  fi
   # :command.required_flags_filter
   # :command.catch_all_filter
   # :command.default_assignments
@@ -1840,13 +1964,23 @@ zen_repo_checkin_parse_requirements() {
     * )
       # :command.parse_requirements_case
       # :command.parse_requirements_case_simple
-      printf "invalid argument: %s\n" "$key"
-      exit 1
+      if [[ -z ${args[message]+x} ]]; then
+        # :argument.validations
+        args[message]=$1
+        shift
+      else
+        printf "invalid argument: %s\n" "$key"
+        exit 1
+      fi
       ;;
 
     esac
   done
   # :command.required_args_filter
+  if [[ -z ${args[message]+x} ]]; then
+    printf "missing required argument: MESSAGE\nusage: zen repo checkin MESSAGE\n"
+    exit 1
+  fi
   # :command.required_flags_filter
   # :command.catch_all_filter
   # :command.default_assignments
@@ -2041,6 +2175,14 @@ run() {
       zen_flow_apply_usage
     else
       zen_flow_apply_command
+    fi
+
+  elif [[ $action == "flow amend" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_flow_amend_usage
+    else
+      zen_flow_amend_command
     fi
 
   elif [[ $action == "pr" ]]; then

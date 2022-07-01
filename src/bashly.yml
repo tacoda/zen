@@ -42,9 +42,17 @@ commands:
     commands:
       - name: apply
         help: Apply local changes to remote
+        args:
+          - name: message
+            help: Message
+            required: true
 
       - name: amend
         help: Amend the last changeset message
+        args:
+          - name: message
+            help: Amended message
+            required: true
 
   - name: pr
     help: Interact with pull requests
@@ -73,6 +81,10 @@ commands:
 
       - name: checkin
         help: Checkin changes in the branch
+        args:
+          - name: message
+            help: Message
+            required: true
 
       - name: update
         help: Update changes in the branch
