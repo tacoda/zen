@@ -498,7 +498,15 @@ zen_local_usage() {
   echo
   # :command.usage_commands
   printf "Commands:\n"
-  echo "  build   Build the local dev environment for the current directory"
+  echo "  build     Build the local dev environment"
+  echo "  clean     Clean the local dev environment"
+  echo "  start     Start the local dev environment"
+  echo "  stop      Stop the local dev environment"
+  echo "  restart   Restart the local dev environment"
+  echo "  shell     Start a tty shell in the local dev environment"
+  echo "  console   Start a rails console in the local dev environment"
+  echo "  rspec     Run rspec tests in the local test environment"
+  echo "  cuke      Run cucumber tests"
   echo
 
   if [[ -n $long_usage ]]; then
@@ -514,11 +522,11 @@ zen_local_usage() {
 # :command.usage
 zen_local_build_usage() {
   if [[ -n $long_usage ]]; then
-    printf "zen local build - Build the local dev environment for the current directory\n"
+    printf "zen local build - Build the local dev environment\n"
     echo
 
   else
-    printf "zen local build - Build the local dev environment for the current directory\n"
+    printf "zen local build - Build the local dev environment\n"
     echo
 
   fi
@@ -533,6 +541,240 @@ zen_local_build_usage() {
     # :command.usage_fixed_flags
     echo "  --help, -h"
     printf "    Show this help\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_local_clean_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen local clean - Clean the local dev environment\n"
+    echo
+
+  else
+    printf "zen local clean - Clean the local dev environment\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen local clean\n"
+  printf "  zen local clean --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_local_start_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen local start - Start the local dev environment\n"
+    echo
+
+  else
+    printf "zen local start - Start the local dev environment\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen local start\n"
+  printf "  zen local start --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_local_stop_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen local stop - Stop the local dev environment\n"
+    echo
+
+  else
+    printf "zen local stop - Stop the local dev environment\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen local stop\n"
+  printf "  zen local stop --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_local_restart_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen local restart - Restart the local dev environment\n"
+    echo
+
+  else
+    printf "zen local restart - Restart the local dev environment\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen local restart\n"
+  printf "  zen local restart --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_local_shell_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen local shell - Start a tty shell in the local dev environment\n"
+    echo
+
+  else
+    printf "zen local shell - Start a tty shell in the local dev environment\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen local shell\n"
+  printf "  zen local shell --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_local_console_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen local console - Start a rails console in the local dev environment\n"
+    echo
+
+  else
+    printf "zen local console - Start a rails console in the local dev environment\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen local console\n"
+  printf "  zen local console --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_local_rspec_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen local rspec - Run rspec tests in the local test environment\n"
+    echo
+
+  else
+    printf "zen local rspec - Run rspec tests in the local test environment\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen local rspec [SPEC_PATH]\n"
+  printf "  zen local rspec --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+
+    # :command.usage_args
+    printf "Arguments:\n"
+
+    # :argument.usage
+    echo "  SPEC_PATH"
+    printf "    Path to spec\n"
+    printf "    Default: \n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_local_cuke_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen local cuke - Run cucumber tests\n"
+    echo
+
+  else
+    printf "zen local cuke - Run cucumber tests\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen local cuke [CUKE_PATH]\n"
+  printf "  zen local cuke --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+
+    # :command.usage_args
+    printf "Arguments:\n"
+
+    # :argument.usage
+    echo "  CUKE_PATH"
+    printf "    Path to cucumber test\n"
+    printf "    Default: \n"
     echo
 
   fi
@@ -557,6 +799,8 @@ zen_repo_usage() {
   # :command.usage_commands
   printf "Commands:\n"
   echo "  branch    Create a new branch in the repo"
+  echo "  stage     Stage local changes"
+  echo "  unstage   Unstage local changes"
   echo "  checkin   Checkin changes in the branch"
   echo "  update    Update changes in the branch"
   echo "  publish   Publish changes to the remote"
@@ -602,6 +846,65 @@ zen_repo_branch_usage() {
     # :argument.usage
     echo "  NAME"
     printf "    Name of branch to create\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_repo_stage_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen repo stage - Stage local changes\n"
+    echo
+
+  else
+    printf "zen repo stage - Stage local changes\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen repo stage\n"
+  printf "  zen repo stage --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+zen_repo_unstage_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "zen repo unstage - Unstage local changes\n"
+    echo
+
+  else
+    printf "zen repo unstage - Unstage local changes\n"
+    echo
+
+  fi
+
+  printf "Usage:\n"
+  printf "  zen repo unstage [options]\n"
+  printf "  zen repo unstage --help | -h\n"
+  echo
+
+  if [[ -n $long_usage ]]; then
+    printf "Options:\n"
+    # :command.usage_fixed_flags
+    echo "  --help, -h"
+    printf "    Show this help\n"
+    echo
+    # :command.usage_flags
+    # :flag.usage
+    echo "  --nuke"
+    printf "    Nuke local changes\n"
     echo
 
   fi
@@ -805,13 +1108,14 @@ zen_card_list_command() {
   # echo "# code for 'zen card list' goes here"
   # echo "# you can edit it freely and regenerate (it will not be overwritten)"
   # inspect_args
-  jr issue
+  ${MY_CODE}/myjira/jira issues assigned
 }
 
 # :command.function
 zen_flow_apply_command() {
   # src/flow_apply_command.sh
   # zen repo update
+  zen repo stage
   zen repo checkin "${args[message]}"
   zen repo publish
 }
@@ -841,6 +1145,74 @@ zen_local_build_command() {
 }
 
 # :command.function
+zen_local_clean_command() {
+  # src/local_clean_command.sh
+  cwd = $PWD
+
+  ${cwd}/bin/run clean
+}
+
+# :command.function
+zen_local_start_command() {
+  # src/local_start_command.sh
+  cwd = $PWD
+
+  ${cwd}/bin/run start
+}
+
+# :command.function
+zen_local_stop_command() {
+  # src/local_stop_command.sh
+  cwd = $PWD
+
+  ${cwd}/bin/run stop
+}
+
+# :command.function
+zen_local_restart_command() {
+  # src/local_restart_command.sh
+  cwd = $PWD
+
+  ${cwd}/bin/run restart
+}
+
+# :command.function
+zen_local_shell_command() {
+  # src/local_shell_command.sh
+  echo "# this file is located in 'src/local_shell_command.sh'"
+  echo "# code for 'zen local shell' goes here"
+  echo "# you can edit it freely and regenerate (it will not be overwritten)"
+  inspect_args
+}
+
+# :command.function
+zen_local_console_command() {
+  # src/local_console_command.sh
+  echo "# this file is located in 'src/local_console_command.sh'"
+  echo "# code for 'zen local console' goes here"
+  echo "# you can edit it freely and regenerate (it will not be overwritten)"
+  inspect_args
+}
+
+# :command.function
+zen_local_rspec_command() {
+  # src/local_rspec_command.sh
+  echo "# this file is located in 'src/local_rspec_command.sh'"
+  echo "# code for 'zen local rspec' goes here"
+  echo "# you can edit it freely and regenerate (it will not be overwritten)"
+  inspect_args
+}
+
+# :command.function
+zen_local_cuke_command() {
+  # src/local_cuke_command.sh
+  echo "# this file is located in 'src/local_cuke_command.sh'"
+  echo "# code for 'zen local cuke' goes here"
+  echo "# you can edit it freely and regenerate (it will not be overwritten)"
+  inspect_args
+}
+
+# :command.function
 zen_repo_branch_command() {
   # src/repo_branch_command.sh
   git checkout -b ${args[name]}
@@ -848,9 +1220,26 @@ zen_repo_branch_command() {
 }
 
 # :command.function
+zen_repo_stage_command() {
+  # src/repo_stage_command.sh
+  git add .
+  git diff --cached
+}
+
+# :command.function
+zen_repo_unstage_command() {
+  # src/repo_unstage_command.sh
+  if [[ ${args[--nuke]} -eq 1 ]]; then
+    git reset HEAD --hard
+  else
+    git reset HEAD
+  fi
+}
+
+# :command.function
 zen_repo_checkin_command() {
   # src/repo_checkin_command.sh
-  git commit -a -m "${args[message]}"
+  git commit -m "${args[message]}"
 }
 
 # :command.function
@@ -1726,6 +2115,62 @@ zen_local_parse_requirements() {
     shift $#
     ;;
 
+  clean )
+    action="clean"
+    shift
+    zen_local_clean_parse_requirements "$@"
+    shift $#
+    ;;
+
+  start )
+    action="start"
+    shift
+    zen_local_start_parse_requirements "$@"
+    shift $#
+    ;;
+
+  stop )
+    action="stop"
+    shift
+    zen_local_stop_parse_requirements "$@"
+    shift $#
+    ;;
+
+  restart )
+    action="restart"
+    shift
+    zen_local_restart_parse_requirements "$@"
+    shift $#
+    ;;
+
+  shell )
+    action="shell"
+    shift
+    zen_local_shell_parse_requirements "$@"
+    shift $#
+    ;;
+
+  console )
+    action="console"
+    shift
+    zen_local_console_parse_requirements "$@"
+    shift $#
+    ;;
+
+  rspec )
+    action="rspec"
+    shift
+    zen_local_rspec_parse_requirements "$@"
+    shift $#
+    ;;
+
+  cuke )
+    action="cuke"
+    shift
+    zen_local_cuke_parse_requirements "$@"
+    shift $#
+    ;;
+
   # :command.command_fallback
   * )
     zen_local_usage
@@ -1803,6 +2248,356 @@ zen_local_build_parse_requirements() {
 }
 
 # :command.parse_requirements
+zen_local_clean_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_local_clean_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="local clean"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      printf "invalid argument: %s\n" "$key"
+      exit 1
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
+zen_local_start_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_local_start_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="local start"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      printf "invalid argument: %s\n" "$key"
+      exit 1
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
+zen_local_stop_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_local_stop_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="local stop"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      printf "invalid argument: %s\n" "$key"
+      exit 1
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
+zen_local_restart_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_local_restart_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="local restart"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      printf "invalid argument: %s\n" "$key"
+      exit 1
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
+zen_local_shell_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_local_shell_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="local shell"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      printf "invalid argument: %s\n" "$key"
+      exit 1
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
+zen_local_console_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_local_console_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="local console"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      printf "invalid argument: %s\n" "$key"
+      exit 1
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
+zen_local_rspec_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_local_rspec_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="local rspec"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      if [[ -z ${args[spec_path]+x} ]]; then
+        # :argument.validations
+        args[spec_path]=$1
+        shift
+      else
+        printf "invalid argument: %s\n" "$key"
+        exit 1
+      fi
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  [[ -n ${args[spec_path]:-} ]] || args[spec_path]=""
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
+zen_local_cuke_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_local_cuke_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="local cuke"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      if [[ -z ${args[cuke_path]+x} ]]; then
+        # :argument.validations
+        args[cuke_path]=$1
+        shift
+      else
+        printf "invalid argument: %s\n" "$key"
+        exit 1
+      fi
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  [[ -n ${args[cuke_path]:-} ]] || args[cuke_path]=""
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
 zen_repo_parse_requirements() {
   # :command.fixed_flags_filter
   case "${1:-}" in
@@ -1826,6 +2621,20 @@ zen_repo_parse_requirements() {
     action="branch"
     shift
     zen_repo_branch_parse_requirements "$@"
+    shift $#
+    ;;
+
+  stage )
+    action="stage"
+    shift
+    zen_repo_stage_parse_requirements "$@"
+    shift $#
+    ;;
+
+  unstage )
+    action="unstage"
+    shift
+    zen_repo_unstage_parse_requirements "$@"
     shift $#
     ;;
 
@@ -1929,6 +2738,97 @@ zen_repo_branch_parse_requirements() {
     printf "missing required argument: NAME\nusage: zen repo branch NAME\n"
     exit 1
   fi
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
+zen_repo_stage_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_repo_stage_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="repo stage"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      printf "invalid argument: %s\n" "$key"
+      exit 1
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
+  # :command.required_flags_filter
+  # :command.catch_all_filter
+  # :command.default_assignments
+  # :command.whitelist_filter
+  # :command.user_filter
+}
+
+# :command.parse_requirements
+zen_repo_unstage_parse_requirements() {
+  # :command.fixed_flags_filter
+  case "${1:-}" in
+  --help | -h )
+    long_usage=yes
+    zen_repo_unstage_usage
+    exit
+    ;;
+
+  esac
+  # :command.environment_variables_filter
+  # :command.dependencies_filter
+  # :command.command_filter
+  action="repo unstage"
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+    # :flag.case
+    --nuke )
+      # :flag.conflicts
+      # :flag.case_no_arg
+      args[--nuke]=1
+      shift
+      ;;
+
+    -?* )
+      printf "invalid option: %s\n" "$key"
+      exit 1
+      ;;
+
+    * )
+      # :command.parse_requirements_case
+      # :command.parse_requirements_case_simple
+      printf "invalid argument: %s\n" "$key"
+      exit 1
+      ;;
+
+    esac
+  done
+  # :command.required_args_filter
   # :command.required_flags_filter
   # :command.catch_all_filter
   # :command.default_assignments
@@ -2217,6 +3117,70 @@ run() {
       zen_local_build_command
     fi
 
+  elif [[ $action == "local clean" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_local_clean_usage
+    else
+      zen_local_clean_command
+    fi
+
+  elif [[ $action == "local start" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_local_start_usage
+    else
+      zen_local_start_command
+    fi
+
+  elif [[ $action == "local stop" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_local_stop_usage
+    else
+      zen_local_stop_command
+    fi
+
+  elif [[ $action == "local restart" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_local_restart_usage
+    else
+      zen_local_restart_command
+    fi
+
+  elif [[ $action == "local shell" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_local_shell_usage
+    else
+      zen_local_shell_command
+    fi
+
+  elif [[ $action == "local console" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_local_console_usage
+    else
+      zen_local_console_command
+    fi
+
+  elif [[ $action == "local rspec" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_local_rspec_usage
+    else
+      zen_local_rspec_command
+    fi
+
+  elif [[ $action == "local cuke" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_local_cuke_usage
+    else
+      zen_local_cuke_command
+    fi
+
   elif [[ $action == "repo" ]]; then
     if [[ ${args[--help]:-} ]]; then
       long_usage=yes
@@ -2231,6 +3195,22 @@ run() {
       zen_repo_branch_usage
     else
       zen_repo_branch_command
+    fi
+
+  elif [[ $action == "repo stage" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_repo_stage_usage
+    else
+      zen_repo_stage_command
+    fi
+
+  elif [[ $action == "repo unstage" ]]; then
+    if [[ ${args[--help]:-} ]]; then
+      long_usage=yes
+      zen_repo_unstage_usage
+    else
+      zen_repo_unstage_command
     fi
 
   elif [[ $action == "repo checkin" ]]; then

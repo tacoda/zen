@@ -1,1 +1,1 @@
-git commit -a -m "${args[message]}"
+git commit -m "${args[message]}"

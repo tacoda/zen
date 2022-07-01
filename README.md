@@ -12,6 +12,25 @@ TODO: Create an install script. If interested, reach out to me on slack and I'll
 zen
 ```
 
+## Help Overview
+
+```
+zen - Zen is a workflow management tool.
+
+Usage:
+  zen [command]
+  zen [command] --help | -h
+  zen --version | -v
+
+Commands:
+  todo    Interact with todos
+  card    Interact with cards
+  flow    Interact with workflows
+  pr      Interact with pull requests
+  local   Interact with local dev environment
+  repo    Interact with local repo
+```
+
 ## Resources
 
 ### Cards

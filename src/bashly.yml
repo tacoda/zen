@@ -66,7 +66,39 @@ commands:
 
     commands:
       - name: build
-        help: Build the local dev environment for the current directory
+        help: Build the local dev environment
+
+      - name: clean
+        help: Clean the local dev environment
+
+      - name: start
+        help: Start the local dev environment
+
+      - name: stop
+        help: Stop the local dev environment
+
+      - name: restart
+        help: Restart the local dev environment
+
+      - name: shell
+        help: Start a tty shell in the local dev environment
+
+      - name: console
+        help: Start a rails console in the local dev environment
+
+      - name: rspec
+        help: Run rspec tests in the local test environment
+        args:
+          - name: spec_path
+            help: Path to spec
+            default: ""
+
+      - name: cuke
+        help: Run cucumber tests
+        args:
+          - name: cuke_path
+            help: Path to cucumber test
+            default: ""
 
   - name: repo
     help: Interact with local repo
@@ -78,6 +110,15 @@ commands:
           - name: name
             help: Name of branch to create
             required: true
+
+      - name: stage
+        help: Stage local changes
+
+      - name: unstage
+        help: Unstage local changes
+        flags:
+          - long: --nuke
+            help: Nuke local changes
 
       - name: checkin
         help: Checkin changes in the branch
