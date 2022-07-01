@@ -1,0 +1,81 @@
+name: zen
+help: Zen is a workflow management tool.
+version: 0.1.0
+
+commands:
+  - name: todo
+    help: Interact with todos
+
+    commands:
+      - name: list
+        help: List all todos
+
+      - name: next
+        help: Show next todo
+        args:
+          - name: limit
+            help: Limit for next todo
+            default: "1"
+
+      - name: start
+        help: Start the next todo
+
+      - name: current
+        help: Show the current todo
+
+      - name: pause
+        help: Pause the current todo
+
+      - name: complete
+        help: Complete the current todo
+
+  - name: card
+    help: Interact with cards
+
+    commands:
+      - name: list
+        help: List all assigned cards
+
+  - name: flow
+    help: Interact with workflows
+
+    commands:
+      - name: apply
+        help: Apply local changes to remote
+
+      - name: amend
+        help: Amend the last changeset message
+
+  - name: pr
+    help: Interact with pull requests
+
+    commands:
+      - name: list
+        help: List all pull requests
+
+  - name: local
+    help: Interact with local dev environment
+
+    commands:
+      - name: build
+        help: Build the local dev environment for the current directory
+
+  - name: repo
+    help: Interact with local repo
+
+    commands:
+      - name: branch
+        help: Create a new branch in the repo
+        args:
+          - name: name
+            help: Name of branch to create
+            required: true
+
+      - name: checkin
+        help: Checkin changes in the branch
+
+      - name: update
+        help: Update changes in the branch
+
+      - name: publish
+        help: Publish changes to the remote
