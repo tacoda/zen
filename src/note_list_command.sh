@@ -1,0 +1,1 @@
+cat ${NOTES_FILE:-}
