@@ -2,6 +2,8 @@ set -e
 
 trap 'echo "Zen installation failed! You can retry by running: source ~/.local/share/zen/install.sh"' ERR
 
+source ~/.local/share/zen/install/identification.sh
+
 gsettings set org.gnome.desktop.screensaver lock-enabled false
 gsettings set org.gnome.desktop.session idle-delay 0
 
