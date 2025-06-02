@@ -1,3 +1,6 @@
+# Source only until I figure out why it isn't sourcing earlier
+source ~/.bashrc
+
 mise use --global ruby@latest
 mise settings add idiomatic_version_file_enable_tools ruby
 mise x ruby -- gem install rails --no-document
