@@ -1,6 +1,9 @@
 # Zen
 
-Custom configuration to be run on a fresh install of Ubuntu.
+Turn a fresh install of Ubuntu into a Zen-like experience.
+
+> When you realize nothing is lacking, the whole world belongs to you.
+> - Lao Tzu
 
 ## Install
 
