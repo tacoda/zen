@@ -15,8 +15,23 @@ wget -qO- https://raw.githubusercontent.com/tacoda/zen/refs/heads/main/zen | bas
 ## Notes
 
 - Assumes arm64 for now.
+- Add lazy* apps and additional preferred packages.
 - Add update script (maybe as part of a bin).
 - Add prompts for username, email, etc.
+- Add fonts
 - Add ability to automatically detect architecture and install appropriate packages in the future.
 - Add video and audio codecs, etc. in the future.
 - Add video and audio programs in the future.
+
+## Audio and Video
+
+- VLC
+- asdcontrol
+- pinta
+- gimp
+- obs studio
+- minecraft
+- retroarch
+- spotify
+- steam
+- zoom
