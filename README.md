@@ -12,4 +12,11 @@ Turn a fresh install of Ubuntu into a Zen-like experience.
 wget -qO- https://raw.githubusercontent.com/tacoda/zen/refs/heads/main/zen | bash
 ```
 
-Assumes arm64 for now. Add ability to automatically detect architecture and install appropriate packages in the future.
+## Notes
+
+- Assumes arm64 for now.
+- Add update script (maybe as part of a bin).
+- Add prompts for username, email, etc.
+- Add ability to automatically detect architecture and install appropriate packages in the future.
+- Add video and audio codecs, etc. in the future.
+- Add video and audio programs in the future.

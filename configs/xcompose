@@ -1,0 +1,5 @@
+include "%H/.local/share/zen/defaults/xcompose"
+
+# Identification
+<Multi_key> <space> <n> : "$ZEN_USER_NAME"
+<Multi_key> <space> <e> : "$ZEN_USER_EMAIL"
