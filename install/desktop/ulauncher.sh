@@ -1,4 +1,5 @@
-sudo add-apt-repository ppa:agornostal/ulauncher
+sudo add-apt-repository -y universe
+sudo add-apt-repository -y ppa:agornostal/ulauncher
 
 sudo apt update -y
 sudo apt install -y ulauncher
