@@ -16,8 +16,7 @@ wget -qO- https://raw.githubusercontent.com/tacoda/zen/refs/heads/main/zen | bas
 
 - Assumes arm64 for now.
 - Add lazy* apps and additional preferred packages.
-- Add update script (maybe as part of a bin).
-- Add gitconfig for personal and work credentials
+- Add update script
 - Add fonts
 - Add ability to automatically detect architecture and install appropriate packages in the future.
 - Add video and audio codecs, etc. in the future.
