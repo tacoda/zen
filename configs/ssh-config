@@ -1,0 +1,9 @@
+Host github.com
+  HostName github.com
+  User git
+  AddKeysToAgent yes
+  IgnoreUnknown UseKeychain
+  IdentityFile ~/.ssh/id_cerbo
+
+Host *
+  HostKeyAlgorithms=+ssh-rsa

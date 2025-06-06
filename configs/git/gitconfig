@@ -1,0 +1,4 @@
+[includeIf "gitdir:~/tacoda/"]
+  path = ~/.gitconfig-tacoda
+[includeIf "gitdir:~/Code/"]
+  path = ~/.gitconfig-cerbo

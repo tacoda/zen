@@ -1,0 +1,6 @@
+[user]
+        name = NAME
+        email = EMAIL
+[core]
+        excludesFile = ~/.gitignore
+        sshCommand = ssh -i ~/.ssh/id_tacoda -F /dev/null

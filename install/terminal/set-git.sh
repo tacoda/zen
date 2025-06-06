@@ -5,13 +5,11 @@ git config --global alias.ci commit
 git config --global alias.st status
 git config --global pull.rebase true
 
-# Set identification from install inputs
-if [[ -n "${ZEN_USER_NAME//[[:space:]]/}" ]]; then
-  git config --global user.name "$ZEN_USER_NAME"
-fi
+cp ~/.local/share/zen/configs/git/gitconfig ~/.gitconfig
+cp ~/.local/share/zen/configs/git/gitconfig-tacoda ~/.gitconfig-tacoda
+sed -i "s/name = .*/name = $ZEN_USER_NAME/" ~/gitconfig-tacoda
+sed -i "s/email = .*/email = $ZEN_USER_EMAIL/" ~/gitconfig-tacoda
 
-if [[ -n "${ZEN_USER_EMAIL//[[:space:]]/}" ]]; then
-  git config --global user.email "$ZEN_USER_EMAIL"
-fi
-
-# TODO: Toggle git config based on folder between personal and work
+cp ~/.local/share/zen/configs/git/gitconfig-cerbo ~/.gitconfig-cerbo
+sed -i "s/name = .*/name = $ZEN_USER_NAME/" ~/gitconfig-cerbo
+sed -i "s/email = .*/email = $ZEN_WORK_USER_EMAIL/" ~/gitconfig-cerbo

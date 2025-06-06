@@ -1,0 +1,12 @@
+[user]
+        name = NAME
+        email = EMAIL
+[filter "lfs"]
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
+[core]
+        autocrlf = input
+        excludesFile = ~/.gitignore
+        sshCommand = ssh -i ~/.ssh/id_cerbo -F /dev/null
