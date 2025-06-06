@@ -21,4 +21,5 @@ set_font() {
   # sed -i "s/\"editor.fontFamily\": \".*\"/\"editor.fontFamily\": \"$font_name\"/g" ~/.config/Code/User/settings.json
 }
 
+if [ ! -d "$HOME/.local/share/fonts" ]; then mkdir -p $HOME/.local/share/fonts; fi
 set_font "FiraMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip" "otf"
