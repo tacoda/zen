@@ -1,2 +1,2 @@
-mkdir $HOME/tacoda
-mkdir $HOME/Code
+[ -d "~/Dev" ] || mkdir $HOME/Dev
+[ -d "~/Code" ] || mkdir $HOME/Code

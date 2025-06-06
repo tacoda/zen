@@ -9,4 +9,4 @@
 [core]
         autocrlf = input
         excludesFile = ~/.gitignore
-        sshCommand = ssh -i ~/.ssh/id_cerbo -F /dev/null
+        sshCommand = ssh -i ~/.ssh/id_code -F /dev/null

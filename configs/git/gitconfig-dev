@@ -3,4 +3,4 @@
         email = EMAIL
 [core]
         excludesFile = ~/.gitignore
-        sshCommand = ssh -i ~/.ssh/id_tacoda -F /dev/null
+        sshCommand = ssh -i ~/.ssh/id_dev -F /dev/null

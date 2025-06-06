@@ -3,7 +3,7 @@ Host github.com
   User git
   AddKeysToAgent yes
   IgnoreUnknown UseKeychain
-  IdentityFile ~/.ssh/id_cerbo
+  IdentityFile ~/.ssh/id_code
 
 Host *
   HostKeyAlgorithms=+ssh-rsa
