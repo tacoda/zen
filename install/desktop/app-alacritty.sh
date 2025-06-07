@@ -6,7 +6,7 @@ cp ~/.local/share/zen/configs/alacritty/shared.toml ~/.config/alacritty/shared.t
 cp ~/.local/share/zen/configs/alacritty/pane.toml ~/.config/alacritty/pane.toml
 cp ~/.local/share/zen/configs/alacritty/btop.toml ~/.config/alacritty/btop.toml
 cp ~/.local/share/zen/themes/kanagawa/alacritty.toml ~/.config/alacritty/theme.toml
-cp ~/.local/share/zen/configs/alacritty/fonts/CaskaydiaMono.toml ~/.config/alacritty/font.toml
+cp ~/.local/share/zen/configs/alacritty/font.toml ~/.config/alacritty/font.toml
 cp ~/.local/share/zen/configs/alacritty/font-size.toml ~/.config/alacritty/font-size.toml
 
 # Migrate config format if needed
