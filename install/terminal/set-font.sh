@@ -22,4 +22,4 @@ set_font() {
 }
 
 if [ ! -d "$HOME/.local/share/fonts" ]; then mkdir -p $HOME/.local/share/fonts; fi
-set_font "RobotoMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/RobotoMono.zip" "otf"
+set_font "RobotoMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/RobotoMono.zip" "ttf"
