@@ -34,3 +34,5 @@ wget -qO- https://raw.githubusercontent.com/tacoda/zen/refs/heads/main/zen | bas
 - spotify
 - steam
 - zoom
+
+Maybe use Roboto font?

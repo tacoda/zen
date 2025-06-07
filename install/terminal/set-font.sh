@@ -17,9 +17,9 @@ set_font() {
   fi
 
   gsettings set org.gnome.desktop.interface monospace-font-name "$font_name 16"
-  cp "$ZEN_PATH/configs/alacritty/fonts/$file_name.toml" ~/.config/alacritty/font.toml
+  # cp "$ZEN_PATH/configs/alacritty/fonts/$file_name.toml" ~/.config/alacritty/font.toml
   # sed -i "s/\"editor.fontFamily\": \".*\"/\"editor.fontFamily\": \"$font_name\"/g" ~/.config/Code/User/settings.json
 }
 
 if [ ! -d "$HOME/.local/share/fonts" ]; then mkdir -p $HOME/.local/share/fonts; fi
-set_font "FiraMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip" "otf"
+set_font "RobotoMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/RobotoMono.zip" "otf"
